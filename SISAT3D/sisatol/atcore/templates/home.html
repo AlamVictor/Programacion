@@ -1,0 +1,92 @@
+{% extends 'principal.html' %}
+{% block contenidohj%}
+{% load static %}
+
+
+<h1></h1>
+<!--Slider -->
+			<div class="row slider">
+				<div class="col">
+					<div class="carousel slide" id="slider" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider" data-slide-to="0" class="active"></li>
+							<li data-target="#slider" data-slide-to="1"></li>
+							<li data-target="#slider" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="{% static 'core/img/estudiantes1.jpg' %}" class="d-block w-80" alt="Slide#1">
+							</div>
+							<div class="carousel-item">
+								<img src="{% static 'core/img/estudiantes2.jpg' %}" class="d-block w-60" alt="Slide#1">
+							</div>
+							<div class="carousel-item">
+								<img src="{% static 'core/img/estudiantes4.jpg' %}" class="d-block w-60" alt="Slide#1">
+							</div>
+						</div>
+
+						<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Anterior</span>
+						</a>
+						<a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Siguiente</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+<!--Piede pagina -->
+<footer>
+	<style>
+	/* footer*/
+.redes-sociales{
+    padding: 40px 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.redes-sociales .icono{
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    line-height: 80px;
+    color: #fa5f49;
+    text-align: center;
+    background: #fdfd96;
+    display: inline-block;
+    margin: 0px 20px;
+    text-decoration: none;
+    border-radius: 80px;
+    transition: all .3s ease;
+}
+.redes-sociales .icono:hover{
+    background: #1aaf7e;
+}
+.redes-sociales .copyright{
+    padding: 20PX 0;
+}
+
+.redes-sociales .copyright samp P{
+    font-family: 'Open Sans', sans-serif;
+}</style>
+    <div class="container">
+        <div class="row redes-sociales justify-content-center">
+            <div class="col-auto">
+                <a href="https://www.facebook.com/" class="icono icon-facebook facebook"></a>
+                <a href="https://twitter.com/?lang=es/" class="icono icon-twitter twitter"></a>
+                <a href="https://www.instagram.com/" class="icono icon-instagram instagram"></a>
+
+            </div>
+
+           <p> <div class="col-12 text-center copyright">
+                <samp>
+                    <a>Copyright &copy; 2021 · Alam Toledo (Desarrollador) </a>
+                </samp>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+{% endblock %}

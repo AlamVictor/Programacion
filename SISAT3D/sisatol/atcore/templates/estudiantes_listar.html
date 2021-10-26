@@ -1,0 +1,53 @@
+{% extends 'principal.html' %}
+{%block contenidohj%}
+<h1>LISTADO DE Estudiantes</h1>
+
+     <div class="form-group">
+        <form action="/buscar/" method="get">
+        <input type="text" name="pwd" placeholder="Apellidos">
+            <input type="submit" value="Buscar">
+
+        </form>
+</div>
+
+
+
+<div class="form-group">
+
+<a class="btn btn-outline-primary" href="{% url 'estudiantesguardar'  %}" role="button">Nuevo</a>
+<a class="btn btn-outline-secondary" href="{% url 'estudiantes_print' %}" role="button">Imprimir</a>
+
+</div>
+
+
+    <TABLE  class="table table-bordered border-primary">
+	<TR>
+		<TH>Id</TH>
+		<TH>#</TH>
+		<TH>NOMBRES</TH>
+		<TH>APELLIDOS</TH>
+
+		<TH>Activo / Anulado</TH>
+		<TH><center>Modificar</center></TH>
+		<TH>Imprimir</TH>
+	</TR>
+		{% for presenta in object_list %}
+	<TR>
+
+
+		<TD>{{ presenta.id }}</TD>
+		<TD>{{ forloop.counter }}</TD>
+		<TD>{{ presenta.estudiantes_nomnbre}}</TD>
+		<TD>{{ presenta.estudiantes_apellido}}</TD>
+        <TD><center>{{ presenta.estudiantes_anulado}}</center></TD>
+
+		<td><a href="{% url 'estudiantesmodificar' presenta.id  %}" ><center><i  class="fas fa-edit" style="font-size:30px" color="grey"></i></center></a></td>
+		<td><a href="{% url 'estudiantesimprimir' presenta.id  %}"  ><center><i class="fas fa-print" style="font-size:30px" color="grey"></i></center></a></td>
+	</TR>
+     {% endfor %}
+
+
+</TABLE>
+
+
+{% endblock %}

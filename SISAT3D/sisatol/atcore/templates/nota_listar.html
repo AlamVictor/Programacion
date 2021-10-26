@@ -1,0 +1,47 @@
+{% extends 'principal.html' %}
+{%block contenidohj%}
+<h1>LISTADO DE NOTAS </h1>
+
+
+
+
+
+<div class="form-group">
+
+<a class="btn btn-outline-primary" href="{% url 'notasguardar'  %}" role="button">Nuevo</a>
+<a class="btn btn-outline-secondary" href="{% url 'notas_print' %}" role="button">Imprimir</a>
+
+</div>
+
+
+    <TABLE  class="table table-bordered border-primary">
+	<TR>
+		<TH>Id</TH>
+			<TH>#</TH>
+		<TH>Estudiante</TH>
+		<TH>Materias</TH>
+		<TH>Notas</TH>
+		<TH>Activo / Anulado</TH>
+		<TH><center>Modificar</center></TH>
+		<TH>Imprimir</TH>
+	</TR>
+		{% for presenta in object_list %}
+	<TR>
+
+		<TD>{{ presenta.id }}</TD>
+		<TD>{{ forloop.counter }}</TD>
+		<TD>{{ presenta.id_estudiantes}}</TD>
+		<TD>{{ presenta.id_materias}}</TD>
+        <TD>{{ presenta.notas}}</TD>
+        <TD><center>{{ presenta.notasanulado}}</center></TD>
+
+		<td><a href="{% url 'notasmodificar' presenta.id  %}" ><center><i  class="fas fa-edit" style="font-size:30px" color="grey"></i></center></a></td>
+		<td><a href="{% url 'notasimprimir' presenta.id  %}"  ><center><i class="fas fa-print" style="font-size:30px" color="grey"></i></center></a></td>
+	</TR>
+     {% endfor %}
+
+
+</TABLE>
+
+
+{% endblock %}
